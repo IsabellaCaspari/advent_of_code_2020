@@ -3,8 +3,9 @@
 This is my code in kotlin for [https://adventofcode.com/](https://adventofcode.com/)
 
 
-## installation
-To run this code 
+## Creating and running
+More infos, you can find here [Working with the commandline compiler](https://kotlinlang.org/docs/tutorials/command-line.html).
+To run this code check this steps:
 
 ### Install Kotlin
 ```javascript
