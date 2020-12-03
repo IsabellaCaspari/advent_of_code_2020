@@ -36,7 +36,6 @@ private fun partTwo() {
     println("""${BLACK}Thats the answer $result""")
 }
 
-
 private fun findWaySlope(right: Int, down: Int): Int {
     var map = readInputFile("03_puzzel_input.txt")
     var lines = 0
@@ -45,13 +44,11 @@ private fun findWaySlope(right: Int, down: Int): Int {
 
     while (lines <= map.size - 1) {
         if (map[lines][columns] == '#') {
-            map[lines][columns] = '0'
             numbersOfTree++
-        } else {
-            map[lines][columns] = 'X'
         }
         lines = lines + down
         columns = columns + right
+        columns = columns % (map[0].size)
     }
     return numbersOfTree
 }
@@ -63,12 +60,7 @@ private fun readInputFile(filename: String): MutableList<MutableList<Char>> {
         try {
             // squares (.) and trees (#)
             //..##.........##.........##.........##.........##.........##.......
-            // multiply pattern X times
-            var linepattern = ""
-            for (i in 0..100) {
-                linepattern += it
-            }
-            map.add(linepattern.toCharArray().toMutableList())
+            map.add(it.toCharArray().toMutableList())
         } catch (e: java.lang.Exception) {
             println(e)
         }
