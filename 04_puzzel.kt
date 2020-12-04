@@ -22,7 +22,7 @@ private fun partOne() {
 }
 
 private fun partTwo() {
-    println(GREEN_BOLD + "Puzzel Day 3, Part 2 ")
+    println("""${GREEN_BOLD}Puzzel Day 3, Part 2 """)
 
     val result = passports.filter { it.validWithStrictRules }.size
     println("""${BLACK}The answer is $result""")
@@ -87,15 +87,9 @@ private fun isValidStricterConditions(hashMap: HashMap<String, String>) =
 private fun isValidHeight(value: String?): Boolean {
     value?.let {
         return (value.contains("cm") && isNumber(value.removeSuffix("cm")) && inRange(
-            value.removeSuffix(
-                "cm"
-            ), 150, 193
-        )) ||
-                (value.contains("in") && isNumber(value.removeSuffix("in")) && inRange(
-                    value.removeSuffix(
-                        "in"
-                    ), 59, 76
-                ))
+            value.removeSuffix("cm"), 150, 193)) ||
+                (value.contains("in") && isNumber(value.removeSuffix("in")) &&
+                        inRange(value.removeSuffix("in"), 59, 76))
     }
     return false
 }
