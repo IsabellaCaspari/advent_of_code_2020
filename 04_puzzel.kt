@@ -48,11 +48,9 @@ private fun extractPassport(line: String): Passport {
     for (i in 0..array.size - 2 step 2) {
         hashMap.put(array[i], array[i + 1])
     }
-
     return Passport(hashMap, isValid(hashMap), isValidStricterConditions(hashMap))
 }
 
-//Ignore cid field
 private fun isValid(hashMap: HashMap<String, String>) =
     hashMap.containsKey("byr") &&
             hashMap.containsKey("iyr") &&
@@ -125,9 +123,8 @@ private fun inRange(value: String?, start: Int, end: Int): Boolean {
 
 }
 
-private fun isNumber(s: String?): Boolean {
-    return if (s.isNullOrEmpty()) false else s.all { Character.isDigit(it) }
-}
+private fun isNumber(s: String?) =  if (s.isNullOrEmpty()) false else s.all { Character.isDigit(it) }
+
 
 private fun readInputFile(filename: String): List<String> {
     var list: MutableList<String> = ArrayList()
