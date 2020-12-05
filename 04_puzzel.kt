@@ -125,7 +125,6 @@ private fun inRange(value: String?, start: Int, end: Int): Boolean {
 
 private fun isNumber(s: String?) =  if (s.isNullOrEmpty()) false else s.all { Character.isDigit(it) }
 
-
 private fun readInputFile(filename: String): List<String> {
     var list: MutableList<String> = ArrayList()
     File(filename).forEachLine {
