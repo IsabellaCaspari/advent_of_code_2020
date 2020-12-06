@@ -19,7 +19,6 @@ private fun partOne() {
     }
     val result = ids.maxOrNull()
     println("""${BLACK}The answer is $result""")
-
 }
 
 private fun partTwo() {
