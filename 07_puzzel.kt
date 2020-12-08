@@ -4,7 +4,6 @@ import  kotlin.math.round
 const val FILE_NAME = "07_puzzel_input.txt"
 val colorList: MutableList<String> = mutableListOf<String>()
 var bags: List<Bag> = emptyList()
-var numberOfBags = 0.0
 
 fun main() {
     partOne()
@@ -21,8 +20,8 @@ private fun partOne() {
 private fun partTwo() {
     println("""Puzzel Day 7, Part 2 """)
     bags = bags.toSet().toMutableList()
-    countContainedBags()
-    println("""The answer is $numberOfBags""")
+    val result = countContainedBags()
+    println("""The answer is $result""")
 }
 
 private fun countBags(): Int {
@@ -41,18 +40,26 @@ private fun checkColor(color: String) {
     }
 }
 
-private fun countContainedBags() {
-    countNumberContainingBags("shinygold")
-}
+private fun countContainedBags() = countNumberContainingBags("shinygold") - 1
 
-private fun countNumberContainingBags(color: String): Double {
+private fun countNumberContainingBags(color: String): Int {
+    bags.forEach {
+        it.toString()
+    }
+
+    if (color == "noColor") {
+        return 0
+    }
+
+    var numberOfBags = 0
     var bag = bags.first { it.color == color }
-    bag?.let{
+
+    bag?.let {
         bag.containBags.forEach { containedBag ->
-            numberOfBags = countNumberContainingBags(containedBag.first) * containedBag.second
+            numberOfBags += (countNumberContainingBags(containedBag.first) * containedBag.second)
         }
     }
-    return numberOfBags
+    return numberOfBags +1
 }
 
 private fun readListOfBags(): List<Bag> {
@@ -98,7 +105,6 @@ private fun readInputFile(filename: String): List<String> {
     }
     return list
 }
-
 
 data class Bag(
     val color: String,
