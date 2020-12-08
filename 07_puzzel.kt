@@ -43,9 +43,6 @@ private fun checkColor(color: String) {
 private fun countContainedBags() = countNumberContainingBags("shinygold") - 1
 
 private fun countNumberContainingBags(color: String): Int {
-    bags.forEach {
-        it.toString()
-    }
 
     if (color == "noColor") {
         return 0
