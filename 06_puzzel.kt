@@ -10,7 +10,7 @@ fun main() {
 }
 
 private fun partOne() {
-    println("""Puzzel Day 5, Part 1 """)
+    println("""Puzzel Day 6, Part 1 """)
     var result = 0
     seperateGroups()
     declarationFroms.forEach {
@@ -25,7 +25,7 @@ private fun partTwo() {
     declarationFroms.forEach {
         result = result + it.filterDuplicateAnswers()
     }
-    println("""Puzzel Day 5, Part 2 """)
+    println("""Puzzel Day 6, Part 2 """)
     println("""The answer is $result""")
 }
 
